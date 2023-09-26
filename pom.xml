@@ -11,6 +11,7 @@
         <module>user-service</module>
         <module>order-service</module>
         <module>eureka-server</module>
+        <module>feign-api</module>
     </modules>
 
     <packaging>pom</packaging>
@@ -41,6 +42,16 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+<!--            nacos管理依赖-->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>2.2.5.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
             <!-- mysql驱动 -->
             <dependency>
                 <groupId>mysql</groupId>

@@ -1,7 +1,6 @@
 package cn.itcast.order.web;
 
 import cn.itcast.order.pojo.Order;
-import cn.itcast.order.pojo.User;
 import cn.itcast.order.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,14 +23,6 @@ public class OrderController {
     public Order queryOrderByUserId(@PathVariable("orderId") Long orderId) {
         // 1.根据id查询订单并返回
         Order order = orderService.queryOrderById(orderId);
-
-        //2.根据RestTemplate发送http请求，查询用户
-        String url = "http://localhost:8081/user/" + order.getUserId();
-
-        User user = restTemplate.getForObject(url, User.class);
-
-        //3.封装user到order中
-        order.setUser(user);
 
         return order;
     }
